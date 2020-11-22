@@ -6,7 +6,7 @@ From facilitating remote access to data to the digitalization of the education s
 Cloud Cryptography uses encryption techniques to protect data used or stored in the Cloud. Data hosted by cloud providers is encrypted, allowing users to access shared cloud services securely, protecting sensitive data without delay in the delivery of information, beyond their corporate IT environment. We've demonstrated the aforementioned concept using the AWS Cloud with AES 256-bit encryption.
 
 ## Deployment (on Windows)
-Download
+Download Project Code
 ```bash
 git clone https://github.com/tanvipenumudy/Secure-AWS-Storage.git
 ```
