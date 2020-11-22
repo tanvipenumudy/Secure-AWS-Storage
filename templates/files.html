@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block title %}CNS Project{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="col-12-xs">
+      <br><br>
+      <h3>Bucket Info</h3>
+      <p>Created: {{ my_bucket.creation_date | datetimeformat }}</p>
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <p class="bg-info" style="padding: 15px;">
+          {% for message in messages %}
+            {{ message }}<br>
+          {% endfor %}
+          </p>
+        {% endif %}
+      {% endwith %}
+      <hr>
+
+      <form class="upload-form" action="{{ url_for('auth.upload') }}" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file"><br>
+        <button type="submit" formaction="{{ url_for('auth.upload') }}" class="btn btn-primary" id="upload_btn">Upload</button>
+        <button type="submit" formaction="{{ url_for('auth.enc_upload') }}" class="btn btn-primary">Encrypt & Upload</button>
+      </form>
+      <hr>
+      <table class="table table-striped">
+        <tr>
+          <th>Filename</th>
+          <th>Last Modified</th>
+          <th>Type</th>
+          <th></th>
+        </tr>
+        {% for f in files %}
+        <tr>
+          <td>{{ f.key }}</td>
+          <td>{{ f.last_modified | datetimeformat }}</td>
+          <td>{{ f.key | file_type }}</td>
+          <td class="td-buttons">
+            <form class="delete-form" action="{{ url_for('auth.delete') }}" method="POST">
+              <input type="hidden" name="key" value="{{ f.key }}">
+              <button type="submit" class="btn btn-danger btn-sm">
+                <i class="fa fa-trash-alt"></i>
+              </button>
+            </form>
+            <form class="download-form" action="{{ url_for('auth.download') }}" method="POST">
+              <input type="hidden" name="key" value="{{ f.key }}">
+              <button type="submit" class="btn btn-default btn-sm">
+                <i class="fa fa-download"></i>
+              </button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+{% endblock %}

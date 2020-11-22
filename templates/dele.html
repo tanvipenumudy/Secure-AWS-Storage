@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3 style="font-size: 20px;">
+    Are you sure you want to delete your account?
+</h3><br>
+<a class="button is-danger" href="{{ url_for('auth.cancel') }}">Yes</a>
+<a class="button is-info" href="{{ url_for('auth.account_set') }}">No</a>
+{% endblock %}

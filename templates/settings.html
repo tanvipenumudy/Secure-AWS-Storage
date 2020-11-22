@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h5 class='title'>
+    Account Settings
+</h5>
+<a class="button is-info" href="{{ url_for('auth.set1') }}">Change Email</a>
+<a class="button is-info" href="{{ url_for('auth.set2') }}">Change Password</a>
+<a class="button is-danger" href="{{ url_for('auth.dele') }}">Delete Account</a>
+{% endblock %}

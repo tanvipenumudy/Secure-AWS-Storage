@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+  Welcome, {{ name }}!
+</h1>
+<a class="button" href="{{ url_for('bucket') }}">Open Storage</a>
+<a class="button is-info" href="{{ url_for('auth.account_set') }}">Account Settings</a>
+{% endblock %}

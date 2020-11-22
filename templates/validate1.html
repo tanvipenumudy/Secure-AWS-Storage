@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Enter OTP</h3>
+    <div class="box">
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div class="notification is-danger">
+        {{ messages[0] }}
+    </div>
+{% endif %}
+{% endwith %}
+        <form method="POST">
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="password" name="otpcode" 
+placeholder="OTP">
+                </div>
+            </div>
+            <button class="button is-block is-info is-large is-fullwidth">Submit</button><br>
+        </form> 
+    </div>
+</div>
+<a class="button is-info" href = "/generate1/{{ email }}">Resend OTP</a>
+
+{% endblock %}
