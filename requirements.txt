@@ -1,0 +1,14 @@
+Flask
+pycryptodome
+hashlib
+smtplib
+datetime
+random
+string
+Flask-Login
+Flask-SQLAlchemy
+Jinja2
+SQLAlchemy
+Werkzeug
+Flask-mail==0.9.0
+os
