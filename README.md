@@ -17,7 +17,7 @@ project_env\Scripts\activate.bat
 ```
 Install Requirements
 ```bash 
-python3 -m pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 Deploy SQLite Database
 ```python
